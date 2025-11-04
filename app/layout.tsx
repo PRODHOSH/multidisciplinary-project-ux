@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   description:
     "IoT-powered plant health monitoring system with real-time sensors for soil moisture, temperature, humidity, and light intensity. Automate your garden today.",
   generator: "v0.app",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 }
 
 export default function RootLayout({
