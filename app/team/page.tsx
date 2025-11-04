@@ -57,29 +57,36 @@ export default function Team() {
 
       <div className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          {/* Team Table (matches provided image) */}
+          {/* Team Section */}
           <div className="mb-20">
             <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Meet the Team</h2>
 
-            <div className="overflow-x-auto">
-              <table className="min-w-full border-collapse">
-                <thead>
-                  <tr className="bg-slate-900 text-white">
-                    <th className="px-6 py-4 text-left text-sm font-semibold">Member</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold">Role</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold">Responsibilities</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y">
-                  {team.map((m, idx) => (
-                    <tr key={idx} className={idx % 2 === 0 ? "bg-slate-800 text-white" : "bg-slate-900 text-white"}>
-                      <td className="px-6 py-5 align-top w-40 font-medium">{m.name}</td>
-                      <td className="px-6 py-5 align-top w-56 text-sm text-primary font-medium">{m.role}</td>
-                      <td className="px-6 py-5 align-top text-sm text-muted-foreground">{m.responsibilities}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="space-y-4">
+              {team.map((member, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-xl p-6 border border-border shadow-sm hover:shadow-md transition-all duration-300"
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                    <div className="md:col-span-3">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-xl font-bold text-white">{member.name.charAt(0)}</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-foreground">{member.name}</h3>
+                      </div>
+                    </div>
+                    <div className="md:col-span-3">
+                      <p className="text-xs uppercase tracking-wide text-muted-foreground mb-1">Role</p>
+                      <p className="text-sm font-semibold text-primary">{member.role}</p>
+                    </div>
+                    <div className="md:col-span-6">
+                      <p className="text-xs uppercase tracking-wide text-muted-foreground mb-1">Responsibilities</p>
+                      <p className="text-sm text-foreground leading-relaxed">{member.responsibilities}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
