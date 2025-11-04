@@ -8,32 +8,34 @@ import { Mail, Linkedin, Github } from "lucide-react"
 export default function Team() {
   const team = [
     {
-      name: "Sarah Chen",
-      role: "Lead Hardware Engineer",
-      bio: "Expert in IoT systems and embedded development",
-      email: "sarah@smartplant.io",
-      social: { linkedin: "#", github: "#" },
+      name: "Prodhosh V S",
+      role: "AI/ML & Full-Stack Developer",
+      responsibilities:
+        "Leads software development; builds both frontend and backend for the website. Works on ML integration — collecting data from IoT system, preparing datasets, and experimenting with prediction models for plant health and watering automation.",
     },
     {
-      name: "Marcus Johnson",
-      role: "Full Stack Developer",
-      bio: "Specializes in cloud architecture and backend systems",
-      email: "marcus@smartplant.io",
-      social: { linkedin: "#", github: "#" },
+      name: "Swarshana",
+      role: "Frontend Developer",
+      responsibilities:
+        "Designs and develops the website interface — focusing on visuals, process explanation, and real-time data display (sensor readings, system status). Handles UI/UX part of the prototype.",
     },
     {
-      name: "Priya Patel",
-      role: "UI/UX Designer",
-      bio: "Creates intuitive interfaces for complex systems",
-      email: "priya@smartplant.io",
-      social: { linkedin: "#", github: "#" },
+      name: "Karan",
+      role: "Backend Developer",
+      responsibilities:
+        "Handles data flow from ESP32 to server or cloud (Firebase/ThingSpeak). Manages database setup, API endpoints, and future integration for ML predictions.",
     },
     {
-      name: "David Rodriguez",
-      role: "Sustainability Consultant",
-      bio: "Focused on environmental impact and efficiency",
-      email: "david@smartplant.io",
-      social: { linkedin: "#", github: "#" },
+      name: "Chinmaya",
+      role: "Hardware & Circuit Engineer",
+      responsibilities:
+        "Connects and calibrates all sensors (DHT22, DS18B20, BH1750, Soil Moisture Sensor) with ESP32. Ensures accurate sensor readings and system reliability.",
+    },
+    {
+      name: "John",
+      role: "Hardware Assembly & Testing",
+      responsibilities:
+        "Builds and maintains the physical setup — wiring, pump, relay, and tubing system. Tests overall automation performance and troubleshooting hardware issues.",
     },
   ]
 
@@ -55,29 +57,29 @@ export default function Team() {
 
       <div className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          {/* Team Grid */}
+          {/* Team Table (matches provided image) */}
           <div className="mb-20">
-            <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Meet the Team</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {team.map((member, i) => (
-                <div
-                  key={i}
-                  className="bg-white rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow duration-300 group"
-                >
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <span className="text-2xl font-bold text-white">{member.name.charAt(0)}</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-1">{member.name}</h3>
-                  <p className="text-sm text-primary font-medium mb-2">{member.role}</p>
-                  <p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Mail className="w-4 h-4 text-muted-foreground" />
-                    <a href={`mailto:${member.email}`} className="text-primary hover:underline truncate">
-                      {member.email}
-                    </a>
-                  </div>
-                </div>
-              ))}
+            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Meet the Team</h2>
+
+            <div className="overflow-x-auto">
+              <table className="min-w-full border-collapse">
+                <thead>
+                  <tr className="bg-slate-900 text-white">
+                    <th className="px-6 py-4 text-left text-sm font-semibold">Member</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold">Role</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold">Responsibilities</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y">
+                  {team.map((m, idx) => (
+                    <tr key={idx} className={idx % 2 === 0 ? "bg-slate-800 text-white" : "bg-slate-900 text-white"}>
+                      <td className="px-6 py-5 align-top w-40 font-medium">{m.name}</td>
+                      <td className="px-6 py-5 align-top w-56 text-sm text-primary font-medium">{m.role}</td>
+                      <td className="px-6 py-5 align-top text-sm text-muted-foreground">{m.responsibilities}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
 
